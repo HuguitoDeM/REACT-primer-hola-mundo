@@ -1,22 +1,22 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from 'react'
 import './App.css'
+import { Input } from './components/Input'
 
 function App() {
+  const [change, setChange] = useState("")
+  const [boton, setBoton] = useState("")
+  const handleBoton = ()=> {
+setBoton(change)
+  }
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel='noreferrer'>
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel='noreferrer'>
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <div className="card">
+<div className='flex flex-col h-[100vh] justify-center items-center'>
+  <Input nombre="nombre" placeholder="Ingrese su nombre" value={change} setvalue={setChange}/>
+    <Input nombre="contra" placeholder="Ingrese su contraseña"  />
+   <button className='bg-black p-3 rounded-2xl text-green-200' onClick={handleBoton}>hola {boton}</button> 
 
-        <h2>HOLA MUNDO, USANDO VITE Y REACT!</h2>
-      </div>
+   </div>
+      
     </>
   )
 }
